@@ -1,8 +1,29 @@
-# 忽略API配置文件 (包含密码)
+# 忽略敏感配置
+.env
+.env.local
+.env.production
+
+# 忽略 API 的 config 配置（PHP）
 api/config/config.php
 
-# 也可以添加其他常见的忽略项 (可选，但推荐)
+# PHP Composer 依赖
 /vendor/
+
+# Node.js 依赖
 node_modules/
+
+# Next.js 构建产物
+.next/
+out/
+
+# 本地配置
+.vscode/
+.vercel/
+
+# 系统垃圾文件
 .DS_Store
-Thumbs.dbRequire all denied
+Thumbs.db
+
+# 日志与备份文件
+*.log
+*.bak
