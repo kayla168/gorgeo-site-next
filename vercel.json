@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/services/(.*)",
+      "destination": "/process/$1",
+      "permanent": true
+    },
+    {
+      "source": "/applications/(.*)",
+      "destination": "/case-studies/$1",
+      "permanent": true
+    }
+  ]
+}

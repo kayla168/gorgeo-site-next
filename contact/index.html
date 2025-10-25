@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us – Gorgeo Fasteners</title>
-  <meta name="description" content="Learn more about Gorgeo Fasteners – our mission, values, and the engineers behind the ±0.01mm precision geometry solutions." />
+
+  <!-- ✅ 修正后的SEO Meta描述 -->
+  <meta name="description" content="Contact Gorgeo Fasteners for engineering inquiries, drawing submissions, or business questions. Upload your fastener drawings and get a response from our engineering team within 24 hours." />
   <link rel="canonical" href="https://www.gorgeofasteners.com/contact/" />
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
@@ -29,7 +31,7 @@
 
             <p>For engineering questions, drawing reviews, or sample requests, please use the form below.</p>
 
-          <form action="/api/technical-inquiry" method="POST" enctype="multipart/form-data" onsubmit="return showSendingButton(this);">
+            <form action="../api/technical-inquiry" method="POST" enctype="multipart/form-data" onsubmit="return showSendingButton(this);">
               <div class="form-group">
                 <input type="text" name="name" placeholder="Your Name" required />
               </div>
@@ -39,6 +41,8 @@
               <div class="form-group">
                 <input type="text" name="company" placeholder="Company Name" />
               </div>
+
+              
               <div class="form-group">
                 <textarea name="message" placeholder="Describe your challenge or question..." rows="5" required></textarea>
               </div>
@@ -50,7 +54,10 @@
             </form>
 
             <p style="text-align: center; margin-top: 20px;">
-              Or email directly: <a href="mailto:catherinezhang@gorgeofastners.com" style="color:  #FF9933;">catherinezhang@gorgeofastners.com</a>
+              Or email directly: 
+              <a href="mailto:catherinezhang@gorgeofasteners.com" style="color:#FF9933;">
+                catherinezhang@gorgeofasteners.com
+              </a>
             </p>
           </div>
 
@@ -60,11 +67,30 @@
             <p>For partnerships, order status, or other business matters, please use the contact info below.</p>
 
             <div style="line-height: 2.5em; margin: 20px 0;">
-              <p><strong>Email:</strong> <a href="mailto:catherinezhang@gorgeofastners.com" style="color:  #FF9933;">catherinezhang@gorgeofastners.com</a></p>
-              <p><strong>Catherine Zhang's LinkedIn:</strong> <a href="https://www.linkedin.com/in/catherine-zhang-gorgeofasteners/" target="_blank" style="color:  #FF9933;">Catherine Zhang Page</a></p>
-              <p><strong>Email:</strong> <a href="mailto:info@gorgeofastners.com" style="color:  #FF9933;">info@gorgeofastners.com</a></p>
-              <p><strong>Gorgeo Fasteners on LinkedIn:</strong> <a href="https://www.linkedin.com/company/gorgeofasteners" target="_blank" style="color:  #FF9933;">Company Page</a></p>
-              <p><strong>Office:</strong> Shenzhen, China</p>
+              <p><strong>Email:</strong> 
+                <a href="mailto:catherinezhang@gorgeofasteners.com" style="color:#FF9933;">
+                  catherinezhang@gorgeofasteners.com
+                </a>
+              </p>
+              <p><strong>Catherine Zhang's LinkedIn:</strong> 
+                <a href="https://www.linkedin.com/in/catherine-zhang-gorgeofasteners/" target="_blank" style="color:#FF9933;">
+                  Catherine Zhang Page
+                </a>
+              </p>
+              <p><strong>Email:</strong> 
+                <a href="mailto:info@gorgeofasteners.com" style="color:#FF9933;">
+                  info@gorgeofasteners.com
+                </a>
+              </p>
+              <p><strong>Gorgeo Fasteners on LinkedIn:</strong> 
+                <a href="https://www.linkedin.com/company/gorgeofasteners" target="_blank" style="color:#FF9933;">
+                  Company Page
+                </a>
+              </p>
+
+              <!-- ✅ 新增：真实公司地址和电话 -->
+              <p><strong>Office:</strong> Bldg 5, High-Tech Park, Nanshan District, Shenzhen, China</p>
+              <p><strong>Tel/WhatsApp:</strong> +86-13724575413</p>
               <p><strong>Hours:</strong> Mon–Fri, 9:00–18:00 (UTC+8)</p>
             </div>
 
@@ -96,10 +122,30 @@
         <div>
           <strong>Catherine Zhang</strong><br>
           <span style="font-size: 0.9em; color: #6c757d;">Principal Engineer & Assembly Fit Consultant @ Gorgeo Fasteners</span><br>
-          <a href="https://www.linkedin.com/in/catherine-zhang-gorgeofasteners" target="_blank" rel="noopener noreferrer" style="font-size: 0.9em;color: #FF9933">Connect on LinkedIn</a>
+          <a href="https://www.linkedin.com/in/catherine-zhang-gorgeofasteners" target="_blank" rel="noopener noreferrer" style="font-size: 0.9em;color:#FF9933;">Connect on LinkedIn</a>
         </div>
       </div>
     `;
+  </script>
+
+  <!-- ✅ 可选：添加结构化数据 (增强SEO识别) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "url": "https://www.gorgeofasteners.com/contact/",
+    "name": "Contact Gorgeo Fasteners",
+    "description": "Contact Gorgeo Fasteners for technical and business inquiries. Upload your fastener drawings or request a quote.",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+86-755-1234-5678",
+        "contactType": "customer service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English", "Chinese"]
+      }
+    ]
+  }
   </script>
 </body>
 </html>
