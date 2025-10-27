@@ -68,13 +68,13 @@ export default async function handler(req, res) {
         <p><strong>While you wait, explore how we solve similar challenges:</strong></p>
         <ul style='padding-left: 0; list-style: none;'>
           <li style='margin-bottom: 10px;'>
-            <a href='https://www.gorgeofasteners.com/blog/vibration-loosening-fix/vibration-loosening-fix.html' style='color: #007bff; text-decoration: none;'>
+            <a href='https://www.gorgeofasteners.com/blog/vibration-loosening-fix/' style='color: #007bff; text-decoration: none;'>
               <strong>Case Study: Fixing Chronic Vibration Loosening</strong><br>
               <span style='color: #555; font-size: 0.9em;'>How we use structural geometry, not just torque, to create joints that never back out.</span>
             </a>
           </li>
           <li>
-            <a href='https://www.gorgeofasteners.com/blog/coating-induced-jam-fit/coating-induced-jam-fit.html' style='color: #007bff; text-decoration: none;'>
+            <a href='https://www.gorgeofasteners.com/blog/coating-induced-jam-fit/' style='color: #007bff; text-decoration: none;'>
               <strong>Teardown: When a 0.05mm Coating Jams Assembly</strong><br>
               <span style='color: #555; font-size: 0.9em;'>Dissecting how an unmodeled finish layer can turn a perfect CAD fit into a production-line failure.</span>
             </a>

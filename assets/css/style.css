@@ -1661,3 +1661,23 @@ footer .container {
   padding: 12px 24px;
   /* ... 其他样式 ... */
 }
+
+
+/* =================================================================== */
+/* ✅ 吊桥升级：发送按钮 Spinner 动画 */
+/* =================================================================== */
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5em;
+  vertical-align: -0.15em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}

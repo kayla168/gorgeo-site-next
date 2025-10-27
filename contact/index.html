@@ -31,7 +31,7 @@
 
             <p>For engineering questions, drawing reviews, or sample requests, please use the form below.</p>
 
-            <form action="../api/technical-inquiry" method="POST" enctype="multipart/form-data" onsubmit="return showSendingButton(this);">
+        <form action="../api/technical-inquiry" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <input type="text" name="name" placeholder="Your Name" required />
               </div>
@@ -147,5 +147,7 @@
     ]
   }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.1/dist/browser-image-compression.js"></script>
 </body>
 </html>
