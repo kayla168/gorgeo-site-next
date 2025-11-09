@@ -1,63 +1,63 @@
 const fs = require('fs');
 const path = require('path');
 const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream } = require('fs');
 
-const hostname = 'https://www.gorgeofasteners.com';
+const rootDir = path.join(__dirname, '..');
+const sitemapPath = path.join(rootDir, 'sitemap.xml');
 
-const publicDir = path.join(__dirname, '..', 'public');
-const sitemapPath = path.join(publicDir, 'sitemap.xml');
+const baseUrl = 'https://www.gorgeofasteners.com';
 
-// 页面优先级定义
-const priorityMap = {
-  '/': 1.0,
-  '/case-studies/': 0.9,
-  '/process/': 0.8,
-  '/blog/': 0.8,
-  '/about/': 0.7,
-  '/contact/': 0.7,
-};
+// 默认固定页面
+const staticPages = [
+  { url: '/', priority: 1.0 },
+  { url: '/case-studies/', priority: 0.9 },
+  { url: '/process/', priority: 0.8 },
+  { url: '/blog/', priority: 0.8 },
+  { url: '/about/', priority: 0.7 },
+  { url: '/contact/', priority: 0.7 },
+];
 
-// 递归扫描所有 index.html 页面
-function findPages(baseUrl, dir) {
-  let pages = [];
+function findPages(prefixUrl, dirPath) {
+  if (!fs.existsSync(dirPath)) return [];
 
-  const items = fs.readdirSync(dir, { withFileTypes: true });
-  for (const item of items) {
-    const fullPath = path.join(dir, item.name);
-    if (item.isDirectory()) {
-      pages = pages.concat(findPages(baseUrl, fullPath));
-    } else if (item.name === 'index.html') {
-      const relative = path.relative(publicDir, dir).replace(/\\/g, '/');
-      const url = '/' + relative + (relative ? '/' : '');
-      pages.push(url);
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true });
+  const pages = [];
+
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const indexPath = path.join(dirPath, entry.name, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        pages.push({
+          url: `${prefixUrl}${entry.name}/`,
+          lastmod: new Date().toISOString(),
+        });
+      }
     }
   }
 
   return pages;
 }
 
-(async () => {
-  const sitemap = new SitemapStream({ hostname });
+async function run() {
+  const sitemap = new SitemapStream({ hostname: baseUrl });
 
-  const staticPaths = Object.keys(priorityMap);
-  const blogAndCasePages = findPages('/blog/', path.join(publicDir, 'blog'))
-    .concat(findPages('/case-studies/', path.join(publicDir, 'case-studies')));
+  const blogPages = findPages('/blog/', path.join(rootDir, 'blog'));
+  const casePages = findPages('/case-studies/', path.join(rootDir, 'case-studies'));
 
-  const urls = [...staticPaths, ...blogAndCasePages];
+  const allPages = staticPages.concat(blogPages).concat(casePages);
 
-  for (const url of urls) {
-    sitemap.write({
-      url,
-      priority: priorityMap[url] || 0.6,
-      lastmod: new Date().toISOString(),
-    });
+  for (const page of allPages) {
+    sitemap.write(page);
   }
 
   sitemap.end();
 
-  const sitemapXml = await streamToPromise(sitemap);
-  fs.writeFileSync(sitemapPath, sitemapXml);
+  const sitemapData = await streamToPromise(sitemap);
+  fs.writeFileSync(sitemapPath, sitemapData.toString());
 
   console.log('✅ sitemap.xml generated from folder structure');
-})();
+}
+
+run().catch((err) => {
+  console.error('❌ Error generating sitemap:', err);
+});
