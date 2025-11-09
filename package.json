@@ -11,7 +11,7 @@
   },
 
    "scripts": {
-    "generate:sitemap": "node scripts/generate-sitemap.js"
+    "generate:sitemap": "node scripts/generate-sitemap.cjs"
   },
   "dependencies": {
     "sitemap": "^7.1.1"

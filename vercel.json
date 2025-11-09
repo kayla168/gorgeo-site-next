@@ -1,10 +1,4 @@
 {
-  "build": {
-    "env": {
-      "NODE_OPTIONS": "--experimental-modules"
-    }
-  },
-  "hooks": {
-    "post-build": "npm run generate:sitemap"
-  }
+  "buildCommand": "npm run generate:sitemap",
+  "outputDirectory": "public"
 }
