@@ -1,7 +1,19 @@
 {
   "private": true,
+  "type": "module",
   "dependencies": {
     "formidable": "^3.5.4",
     "nodemailer": "^7.0.9"
+  },
+  "devDependencies": {
+    "glob": "^10.3.10",
+    "sitemap": "^7.1.1"
+  },
+
+   "scripts": {
+    "generate:sitemap": "node scripts/generate-sitemap.js"
+  },
+  "dependencies": {
+    "sitemap": "^7.1.1"
   }
 }

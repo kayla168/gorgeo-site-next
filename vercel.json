@@ -1,14 +1,10 @@
 {
-  "redirects": [
-    {
-      "source": "/services/(.*)",
-      "destination": "/process/$1",
-      "permanent": true
-    },
-    {
-      "source": "/applications/(.*)",
-      "destination": "/case-studies/$1",
-      "permanent": true
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--experimental-modules"
     }
-  ]
+  },
+  "hooks": {
+    "post-build": "npm run generate:sitemap"
+  }
 }
