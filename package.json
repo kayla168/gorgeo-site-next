@@ -1,6 +1,9 @@
 {
   "private": true,
   "type": "module",
+  "scripts": {
+    "generate:sitemap": "node scripts/generate-sitemap.cjs"
+  },
   "dependencies": {
     "formidable": "^3.5.4",
     "nodemailer": "^7.0.9",
@@ -8,8 +11,5 @@
   },
   "devDependencies": {
     "glob": "^10.3.10"
-  },
-  "scripts": {
-    "generate:sitemap": "node scripts/generate-sitemap.cjs"
   }
 }

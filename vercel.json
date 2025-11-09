@@ -1,4 +1,8 @@
 {
+  "outputDirectory": "public",
   "buildCommand": "npm run generate:sitemap",
-  "outputDirectory": "public"
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ]
 }
