@@ -9,7 +9,9 @@
   "devDependencies": {
     "glob": "^10.3.10"
   },
-  "scripts": {
-    "generate:sitemap": "node scripts/generate-sitemap.cjs"
-  }
+"scripts": {
+  "build": "npm run generate:sitemap && vercel build",
+  "generate:sitemap": "node scripts/generate-sitemap.cjs"
+}
+
 }
